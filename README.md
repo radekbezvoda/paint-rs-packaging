@@ -1,6 +1,6 @@
 # Unofficial paint.rs packages
 
-Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.1.3**. This project repackages the upstream x86_64 binary; it does not contain the application source. Upstream is GPL-3.0-or-later; see `UPSTREAM-LICENSE`, `UPSTREAM-LICENSE.md`, and `UPSTREAM-NOTICE.md` for bundled upstream notices. The packaging repository itself retains the MIT license from its initial setup.
+Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.1.3**, by **daijro**. This is an unofficial downstream package that repackages the upstream x86_64 binary; it does not contain the application source. All credit for the paint.rs application goes to its author, daijro. Upstream is GPL-3.0-or-later; see `UPSTREAM-LICENSE`, `UPSTREAM-LICENSE.md`, and `UPSTREAM-NOTICE.md` for bundled upstream notices. The packaging repository itself retains the MIT license from its initial setup.
 
 The upstream release states that Linux builds need glibc 2.35 or newer. The provided binary's ELF version requirements were inspected and include GLIBC_2.35. Flatpak targets Freedesktop 26.08, and the Snap uses core24; actual runtime verification remains necessary on target systems.
 
