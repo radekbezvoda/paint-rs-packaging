@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.daijro.paintrs</id>
+  <name>paint.rs</name>
+  <summary>Image editor inspired by Paint.NET</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer id="io.github.daijro"><name>daijro</name></developer>
+  <description><p>An open source, clean-room reimplementation of Paint.NET for Linux, macOS, Windows, and the web.</p></description>
+  <launchable type="desktop-id">io.github.daijro.paintrs.desktop</launchable>
+  <url type="homepage">https://github.com/daijro/paint.rs</url>
+  <url type="bugtracker">https://github.com/daijro/paint.rs/issues</url>
+  <releases><release version="0.1.3" date="2026-10-25"/></releases>
+  <content_rating type="oars-1.1"/>
+</component>

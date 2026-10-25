@@ -1,0 +1,36 @@
+app-id: io.github.daijro.paintrs
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
+command: paintrs
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --filesystem=xdg-desktop
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-download
+  - --share=network
+modules:
+  - name: paintrs
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 paint.rs-v0.1.3-linux-x86_64/paintrs /app/bin/paintrs
+      - install -Dm755 io.github.daijro.paintrs.desktop /app/share/applications/io.github.daijro.paintrs.desktop
+      - install -Dm644 io.github.daijro.paintrs.png /app/share/icons/hicolor/128x128/apps/io.github.daijro.paintrs.png
+      - install -Dm644 io.github.daijro.paintrs.metainfo.xml /app/share/metainfo/io.github.daijro.paintrs.metainfo.xml
+      - install -Dm644 paint.rs-v0.1.3-linux-x86_64/NOTICE.md /app/share/doc/io.github.daijro.paintrs/NOTICE.md
+      - install -Dm644 paint.rs-v0.1.3-linux-x86_64/LICENSE.md /app/share/doc/io.github.daijro.paintrs/LICENSE.md
+      - install -Dm644 paint.rs-v0.1.3-linux-x86_64/LICENSE /app/share/doc/io.github.daijro.paintrs/LICENSE
+    sources:
+      - type: archive
+        url: https://github.com/daijro/paint.rs/releases/download/v0.1.3/paint.rs-v0.1.3-linux-x86_64.tar.gz
+        sha256: f1c5cb878a78635bbb62813847c444f1b54a6aa71fcdd1d448d855bac2d3c8ae
+        strip-components: 0
+      - type: file
+        path: io.github.daijro.paintrs.desktop
+      - type: file
+        path: io.github.daijro.paintrs.png
+      - type: file
+        path: io.github.daijro.paintrs.metainfo.xml

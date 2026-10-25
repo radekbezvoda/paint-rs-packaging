@@ -1,0 +1,53 @@
+name: paintrs
+title: paint.rs
+base: core24
+version: '0.1.3'
+summary: Image editor inspired by Paint.NET
+description: |
+  An open source image editor for Linux, macOS, Windows, and the web.
+  This unofficial package repackages the upstream Linux x86_64 release.
+license: GPL-3.0-or-later
+website: https://github.com/daijro/paint.rs
+source-code: https://github.com/daijro/paint.rs
+issues: https://github.com/daijro/paint.rs/issues
+contact: https://github.com/daijro/paint.rs/issues
+icon: snap/gui/paint-rs.png
+grade: stable
+confinement: strict
+platforms:
+  amd64:
+apps:
+  paintrs:
+    command: bin/paintrs
+    extensions: [gnome]
+    desktop: meta/gui/paint-rs.desktop
+    common-id: io.github.daijro.paintrs
+    plugs:
+      - home
+      - network
+      - opengl
+      - removable-media
+parts:
+  paintrs:
+    plugin: nil
+    build-packages:
+      - ca-certificates
+      - curl
+    override-pull: |
+      set -eu
+      archive=paint.rs-v${CRAFT_PROJECT_VERSION}-linux-x86_64.tar.gz
+      url="https://github.com/daijro/paint.rs/releases/download/v${CRAFT_PROJECT_VERSION}/${archive}"
+      sha256=f1c5cb878a78635bbb62813847c444f1b54a6aa71fcdd1d448d855bac2d3c8ae
+      curl -fsSL --retry 3 -o "$archive" "$url"
+      printf '%s  %s\n' "$sha256" "$archive" | sha256sum -c -
+      tar xzf "$archive"
+      rm -f "$archive"
+    override-build: |
+      set -eu
+      src="paint.rs-v${CRAFT_PROJECT_VERSION}-linux-x86_64"
+      install -Dm755 "$src/paintrs" "$CRAFT_PART_INSTALL/bin/paintrs"
+      install -Dm644 "$CRAFT_PROJECT_DIR/snap/gui/paint-rs.desktop" "$CRAFT_PART_INSTALL/meta/gui/paint-rs.desktop"
+      install -Dm644 "$CRAFT_PROJECT_DIR/snap/gui/paint-rs.png" "$CRAFT_PART_INSTALL/meta/gui/paint-rs.png"
+      install -Dm644 "$src/LICENSE" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/LICENSE"
+      install -Dm644 "$src/LICENSE.md" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/LICENSE.md"
+      install -Dm644 "$src/NOTICE.md" "$CRAFT_PART_INSTALL/usr/share/doc/paintrs/NOTICE.md"
