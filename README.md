@@ -1,6 +1,6 @@
 # Unofficial paint.rs packages
 
-Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.1.3**, by **daijro**. This is an unofficial downstream package that repackages the upstream x86_64 binary; it does not contain the application source. All credit for the paint.rs application goes to its author, daijro. Upstream is GPL-3.0-or-later; see `UPSTREAM-LICENSE`, `UPSTREAM-LICENSE.md`, and `UPSTREAM-NOTICE.md` for bundled upstream notices. The packaging repository itself retains the MIT license from its initial setup.
+Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.1.8**, by **daijro**. This is an unofficial downstream package that repackages the upstream x86_64 binary; it does not contain the application source. All credit for the paint.rs application goes to its author, daijro. Upstream is GPL-3.0-or-later; see `UPSTREAM-LICENSE`, `UPSTREAM-LICENSE.md`, and `UPSTREAM-NOTICE.md` for bundled upstream notices. The packaging repository itself retains the MIT license from its initial setup.
 
 The upstream release states that Linux builds need glibc 2.35 or newer. The provided binary's ELF version requirements were inspected and include GLIBC_2.35. Flatpak targets Freedesktop 26.08, and the Snap uses core24; actual runtime verification remains necessary on target systems.
 
@@ -17,7 +17,7 @@ flatpak install --user flathub org.freedesktop.Sdk//26.08 org.freedesktop.Platfo
 flatpak-builder --user --install --force-clean build-dir io.github.daijro.paintrs.yml
 flatpak run io.github.daijro.paintrs
 flatpak-builder --repo=repo --force-clean build-dir io.github.daijro.paintrs.yml
-flatpak build-bundle repo ../releases/paintrs-0.1.3-x86_64.flatpak io.github.daijro.paintrs master
+flatpak build-bundle repo ../releases/paintrs-0.1.8-x86_64.flatpak io.github.daijro.paintrs master
 ```
 
 ## Snap
@@ -27,16 +27,27 @@ The Snap uses core24 and strict confinement. The `home` interface permits direct
 ```sh
 cd snap
 snapcraft pack --use-lxd
+mv paintrs_0.1.8_amd64.snap ../releases/
 ```
 
 Install a local build only after reviewing its permissions:
 
 ```sh
-sudo snap install --dangerous paintrs_0.1.3_amd64.snap
+sudo snap install --dangerous ../releases/paintrs_0.1.8_amd64.snap
 ```
 
 `--dangerous` accepts a locally built unsigned artifact; it does not disable strict confinement.
 
 ## Checksums
 
-When artifact builds complete, record and check the local checksums from `releases/` with `sha256sum -c SHA256SUMS`.
+| Artifact | SHA-256 |
+| --- | --- |
+| `paintrs-0.1.8-x86_64.flatpak` | `869757059ca3f5497995d7689d68c0fd7c514c86870ac2d2daa7f1dcca6a86b3` |
+| `paintrs_0.1.8_amd64.snap` | `4624126c320fad231904e4fd3250d3706396971459c5e3b2ca9e85c7fab5f852` |
+
+Verify both local artifacts from `releases/` with:
+
+```sh
+cd releases
+sha256sum -c SHA256SUMS
+```
