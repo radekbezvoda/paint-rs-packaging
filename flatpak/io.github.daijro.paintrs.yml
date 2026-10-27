@@ -16,17 +16,16 @@ modules:
   - name: paintrs
     buildsystem: simple
     build-commands:
-      - install -Dm755 paint.rs-v0.1.8-linux-x86_64/paintrs /app/bin/paintrs
+      - install -Dm755 paint.rs-v0.2.0-linux-x86_64/paintrs /app/bin/paintrs
       - install -Dm755 io.github.daijro.paintrs.desktop /app/share/applications/io.github.daijro.paintrs.desktop
       - install -Dm644 io.github.daijro.paintrs.png /app/share/icons/hicolor/128x128/apps/io.github.daijro.paintrs.png
       - install -Dm644 io.github.daijro.paintrs.metainfo.xml /app/share/metainfo/io.github.daijro.paintrs.metainfo.xml
-      - install -Dm644 paint.rs-v0.1.8-linux-x86_64/NOTICE.md /app/share/doc/io.github.daijro.paintrs/NOTICE.md
-      - install -Dm644 paint.rs-v0.1.8-linux-x86_64/LICENSE.md /app/share/doc/io.github.daijro.paintrs/LICENSE.md
-      - install -Dm644 paint.rs-v0.1.8-linux-x86_64/LICENSE /app/share/doc/io.github.daijro.paintrs/LICENSE
+      - install -Dm644 paint.rs-v0.2.0-linux-x86_64/notices/LICENSE.md /app/share/doc/io.github.daijro.paintrs/LICENSE.md
+      - install -Dm644 paint.rs-v0.2.0-linux-x86_64/notices/LICENSE /app/share/doc/io.github.daijro.paintrs/LICENSE
     sources:
       - type: archive
-        url: https://github.com/daijro/paint.rs/releases/download/v0.1.8/paint.rs-v0.1.8-linux-x86_64.tar.gz
-        sha256: 9f0dbc5a1729b209981673cf7a17b0c899fcce7f63a3008645f5c5ad378e2b81
+        url: https://github.com/daijro/paint.rs/releases/download/v0.2.0/paint.rs-v0.2.0-linux-x86_64.tar.gz
+        sha256: d8a9ecad34501517edbe1341fe27e8774e292be923cfe48dc3d2a667c955a61b
         strip-components: 0
       - type: file
         path: io.github.daijro.paintrs.desktop
