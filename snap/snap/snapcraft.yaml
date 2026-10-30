@@ -1,7 +1,7 @@
 name: paintrs
 title: paint.rs
 base: core24
-version: '0.6.0'
+version: '0.7.2'
 summary: Image editor inspired by Paint.NET
 description: |
   An open source image editor for Linux, macOS, Windows, and the web.
@@ -37,7 +37,7 @@ parts:
       set -eu
       archive=paint.rs-v${CRAFT_PROJECT_VERSION}-linux-x86_64.tar.gz
       url="https://github.com/daijro/paint.rs/releases/download/v${CRAFT_PROJECT_VERSION}/${archive}"
-      sha256=d8ee902faaa07f4b3f108034c9412115b85947b8d1f7d9de7c1b297a8bcf0359
+      sha256=4b17a04d94900aec35165d8439fdc9dd62a4a6eb5012cdd3336fe115486332f6
       curl -fsSL --retry 3 -o "$archive" "$url"
       printf '%s  %s\n' "$sha256" "$archive" | sha256sum -c -
       tar xzf "$archive"
@@ -50,3 +50,5 @@ parts:
       install -Dm644 "$CRAFT_PROJECT_DIR/snap/gui/paint-rs.png" "$CRAFT_PART_INSTALL/meta/gui/paint-rs.png"
       install -Dm644 "$src/LICENSE" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/LICENSE"
       install -Dm644 "$src/LICENSE.md" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/LICENSE.md"
+      install -Dm644 "$src/NOTICE.md" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/NOTICE.md"
+      cp -a "$src/notices" "$CRAFT_PART_INSTALL/usr/share/licenses/paintrs/"
