@@ -1,8 +1,8 @@
 # Unofficial paint.rs packages
 
-Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.7.2**, by **daijro**. This is an unofficial downstream package that repackages the upstream x86_64 binary; it does not contain the application source. All credit for the paint.rs application goes to its author, daijro. Upstream is GPL-3.0-or-later; the packages preserve the archive's `LICENSE`, `LICENSE.md`, `NOTICE.md`, and complete `notices/` directory. The packaging repository itself retains the MIT license from its initial setup.
+Local Flatpak and strict Snap packaging for [paint.rs](https://github.com/daijro/paint.rs) **v0.7.3**, by **daijro**. This is an unofficial downstream package that repackages the upstream x86_64 binary; it does not contain the application source. All credit for the paint.rs application goes to its author, daijro. Upstream is GPL-3.0-or-later; the packages preserve the archive's `LICENSE`, `LICENSE.md`, `NOTICE.md`, and complete `notices/` directory. The packaging repository itself retains the MIT license from its initial setup.
 
-The upstream Linux x86_64 release is used (not an AVX2-specific variant). No ARM build is included. Its published SHA-256 is `4b17a04d94900aec35165d8439fdc9dd62a4a6eb5012cdd3336fe115486332f6`.
+The upstream Linux x86_64 release is used (not an AVX2-specific variant). No ARM build is included. Its published SHA-256 is `1c3e8e5f93a42e54f33dd09182038d84647f350277648f17ee949702df46471e`.
 
 ## Flatpak
 
@@ -15,7 +15,7 @@ flatpak install --user flathub org.freedesktop.Sdk//26.08 org.freedesktop.Platfo
 flatpak-builder --user --install --force-clean build-dir io.github.daijro.paintrs.yml
 flatpak run io.github.daijro.paintrs
 flatpak-builder --repo=repo --force-clean build-dir io.github.daijro.paintrs.yml
-flatpak build-bundle repo ../releases/paintrs-0.7.2-x86_64.flatpak io.github.daijro.paintrs master
+flatpak build-bundle repo ../releases/paintrs-0.7.3-x86_64.flatpak io.github.daijro.paintrs master
 ```
 
 ## Snap
@@ -26,7 +26,7 @@ The Snap uses core24 and strict confinement. The `home` interface permits direct
 cd snap
 snapcraft clean
 snapcraft pack --use-lxd
-mv paintrs_0.7.2_amd64.snap ../releases/
+mv paintrs_0.7.3_amd64.snap ../releases/
 ```
 
 Install a local build only after reviewing its permissions:
@@ -41,8 +41,8 @@ sudo snap install --dangerous ../releases/paintrs_0.6.0_amd64.snap
 
 | Artifact | SHA-256 |
 | --- | --- |
-| `paintrs-0.7.2-x86_64.flatpak` | `ca02023db6d38a5ba348ebcfae8ae5f93d00bc76890af4a53bc85a49bdeeaa2c` |
-| `paintrs_0.7.2_amd64.snap` | `0828db45604d0fe3ddf5a4eb6eb3aeb074cfbe2864a6d951d4941f62e9cfeba7` |
+| `paintrs-0.7.3-x86_64.flatpak` | `af739e1cf8735b74d981aae66ed7aa811f348cdf51afa6bf0614a5214b45e807` |
+| `paintrs_0.7.3_amd64.snap` | `d201fff57d0920fe954973c100d614467e38a1c5e7c0d8e74a07917792678c59` |
 
 Verify both local artifacts from `releases/` with:
 

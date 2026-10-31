@@ -1,7 +1,7 @@
 name: paintrs
 title: paint.rs
 base: core24
-version: '0.7.2'
+version: '0.7.3'
 summary: Image editor inspired by Paint.NET
 description: |
   An open source image editor for Linux, macOS, Windows, and the web.
@@ -37,7 +37,7 @@ parts:
       set -eu
       archive=paint.rs-v${CRAFT_PROJECT_VERSION}-linux-x86_64.tar.gz
       url="https://github.com/daijro/paint.rs/releases/download/v${CRAFT_PROJECT_VERSION}/${archive}"
-      sha256=4b17a04d94900aec35165d8439fdc9dd62a4a6eb5012cdd3336fe115486332f6
+      sha256=1c3e8e5f93a42e54f33dd09182038d84647f350277648f17ee949702df46471e
       curl -fsSL --retry 3 -o "$archive" "$url"
       printf '%s  %s\n' "$sha256" "$archive" | sha256sum -c -
       tar xzf "$archive"
